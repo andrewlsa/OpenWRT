@@ -55,7 +55,7 @@ DEFAULT_PACKAGES.nas:=\
 DEFAULT_PACKAGES.router:=\
 	dnsmasq-full \
 	firewall4 \
-	nftables \
+	iptables \
 	luci luci-compact luci-app-ssr-plus
 
 ifneq ($(DUMP),)
