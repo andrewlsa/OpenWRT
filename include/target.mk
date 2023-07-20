@@ -56,7 +56,7 @@ DEFAULT_PACKAGES.router:=\
 	dnsmasq-full \
 	firewall4 \
 	iptables \
-	luci luci-compact luci-app-ssr-plus
+	luci luci-compat luci-app-ssr-plus
 
 ifneq ($(DUMP),)
   all: dumpinfo
