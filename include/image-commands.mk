@@ -152,6 +152,18 @@ define Build/append-ubi
 		$(call Build/check-size,$(UBI_NAND_SIZE_LIMIT)))
 endef
 
+define Build/ubinize-image
+	sh $(TOPDIR)/scripts/ubinize-image.sh \
+		$(if $(UBOOTENV_IN_UBI),--uboot-env) \
+		$(foreach part,$(UBINIZE_PARTS),--part $(part)) \
+		--part $(word 1,$(1))="$(BIN_DIR)/$(DEVICE_IMG_PREFIX)-$(word 2,$(1))" \
+		$@ \
+		-p $(BLOCKSIZE:%k=%KiB) -m $(PAGESIZE) \
+		$(if $(SUBPAGESIZE),-s $(SUBPAGESIZE)) \
+		$(if $(VID_HDR_OFFSET),-O $(VID_HDR_OFFSET)) \
+		$(UBINIZE_OPTS)
+endef
+
 define Build/ubinize-kernel
 	cp $@ $@.tmp
 	sh $(TOPDIR)/scripts/ubinize-image.sh \
