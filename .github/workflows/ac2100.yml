@@ -7,14 +7,14 @@
 #
 name: AC2100-CI
 
-on:
-  push:
-    branches:
-      - main
-  schedule:
-    - cron: '10 6 * * *' 
-  release:
-    types: [published]
+#on:
+#  push:
+#    branches:
+#      - main
+#  schedule:
+#    - cron: '10 6 * * *' 
+#  release:
+#    types: [published]
 
 jobs:
 
